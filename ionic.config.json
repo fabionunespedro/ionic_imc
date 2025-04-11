@@ -1,0 +1,7 @@
+{
+  "name": "imcApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

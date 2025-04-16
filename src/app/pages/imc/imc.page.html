@@ -1,9 +1,35 @@
 <ion-header>
-  <ion-toolbar color="#95c1aa, #c8e1be">
-    <ion-title>IMC</ion-title>
+  <ion-toolbar style="--background: #d6e5d0;">
+    <ion-title>Calculadora de IMC</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="pagina-imc" fullscreen="true">
-  <!-- Conteúdo futuro aqui -->
-</ion-content>
+<ion-content class="ion-padding" style="--background: #e0f2e9;">
+  <ion-item>
+    <ion-label position="floating">Altura (m)</ion-label>
+    <ion-input [(ngModel)]="altura" type="number" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Peso (kg)</ion-label>
+    <ion-input [(ngModel)]="peso" type="number" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Sexo</ion-label>
+    <ion-select [(ngModel)]="sexo">
+      <ion-select-option value="feminino">Mulher</ion-select-option>
+      <ion-select-option value="masculino">Homem</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" style="--background: #4a634d;" (click)="calcularIMC()">Calcular IMC</ion-button>
+
+  <ion-card *ngIf="resultado" style="--background: #f1f7f4;">
+    <ion-card-header>
+      <ion-card-title>Seu IMC: {{ resultado | number:'1.1-2' }}</ion-card-title>
+      <ion-card-subtitle>{{ classificacao }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+
